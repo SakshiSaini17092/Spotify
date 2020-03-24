@@ -1,12 +1,36 @@
 # Spotify
 
+### Requirements ###
+  * npm
+  * create an account on [Spotify Dashboard](https://developer.spotify.com/dashboard/)
+  * create an application and get the ClientID and ClientSecret using documentation.
+  
+### Build
 
-TO run
+  * Clone the repo using this command
+  ```
+  git clone https://github.com/SakshiSaini17092/Spotify.git
+  ```
+  * Change the line 7 and 8 
+  add your credentials
+  
+  * Run the server using the commands below
+  ```
+  cd Spotify/server
+  npm install
+  npm start
+  ```
+  * Run the client server using below commands on other tab of terminal
+  ```
+  cd ../client
+  npm install
+  npm start
+  ```
 
-1. cd server
-2. npm install
-3. nodemon start
+You can filter the results on basis of popularity and Market Available
+  
+  Sample of the ui
+![for Zayn]( https://github.com/SakshiSaini17092/Spotify/blob/master/Screenshots/Screenshot%20from%202020-03-24%2013-23-30.png )
 
-4. cd ..
-5. cd client
-6. npm start / yarn start
+![for Ariana Grande]( https://github.com/SakshiSaini17092/Spotify/blob/master/Screenshots/Screenshot%20from%202020-03-24%2013-44-50.png)
+
