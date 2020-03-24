@@ -29,6 +29,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                
                 <HeaderExampleUsersIcon/>
                 <SearchExampleStandard/>
             </div>

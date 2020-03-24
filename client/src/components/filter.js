@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { Button, Dropdown, Grid } from 'semantic-ui-react'
 import GridEx from "./grid"
 
+import "./styles/filter.css"
+
 var opts =[]
 var token = ""
 
@@ -131,7 +133,8 @@ class DropdownExampleRemote extends Component {
                 track.push(obj)
               }
           });
-          this.setState({tracks: track})
+          this.props.onChange(track)
+          this.setState({tracks: []})
       } )
     .catch( err => 
         console.log(err)
@@ -172,8 +175,9 @@ class DropdownExampleRemote extends Component {
                 console.log(obj.image, "imahgeee")
                 track.push(obj)
             });
-
-            this.setState({tracks: track})
+            this.props.onChange(track)
+            this.setState({tracks: []})
+            // this.setState({tracks: track})
         } )
     .catch( err => 
         console.log(err)
@@ -196,8 +200,10 @@ class DropdownExampleRemote extends Component {
             <Button onClick={this.applyFilter} disabled={_.isEmpty(options)}>Apply Filter</Button>
           </p>
         </Grid.Column>
-        
+                
         <Grid.Column width={4}>
+
+        <div className="dropdown">
         <Dropdown
             fluid
             selection
@@ -210,8 +216,9 @@ class DropdownExampleRemote extends Component {
             onSearchChange={this.handleSearchChange}
             disabled={isFetching}
             loading={isFetching}
+            
           />
-
+        </div>
             <Dropdown
                 placeholder='Popularity'
                 fluid
@@ -219,11 +226,14 @@ class DropdownExampleRemote extends Component {
                 selection
                 options={popularityOptions}
                 onChange={this.handleChange}
+                
             />
-
+         
         </Grid.Column>
       </Grid>
+      
       <GridEx param = {this.state.tracks}/>
+
       </div>
     )
   }

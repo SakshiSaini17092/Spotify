@@ -18,6 +18,11 @@ resultRenderer.propTypes = {
 }
 
 export default class SearchExampleStandard extends Component {
+
+  constructor(){
+    super();
+    this.state = initialState
+  }
   state = initialState
   token = ""
 
@@ -75,7 +80,7 @@ export default class SearchExampleStandard extends Component {
     }
     track = []
 
-    fetch( 'https://api.spotify.com/v1/search?q='+ artist +'&type=track&offset=0&limit=10' , obj)  
+    fetch( 'https://api.spotify.com/v1/search?q='+ artist +'&type=track&offset=0&limit=20' , obj)  
     .then(res => res.text() )
     .then( res => {
         res = JSON.parse(res)
@@ -127,6 +132,10 @@ export default class SearchExampleStandard extends Component {
     }, 300)
   }
 
+  handleStateChange=(track)=>{
+    this.setState({tracks: track})
+  }
+
   render() {
     
     const { isLoading, value, results } = this.state
@@ -150,10 +159,10 @@ export default class SearchExampleStandard extends Component {
         </Grid.Column>
 
       </Grid>
-      
-     <GridEx param = {this.state.tracks}/>
-     <DropdownExampleRemote param = {this.state.value} />
+      <DropdownExampleRemote param={this.state.value} onChange = {this.handleStateChange} />
 
+     <GridEx param = {this.state.tracks}/>
+    
     </div>
     )
   }

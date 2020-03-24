@@ -1,0 +1,12 @@
+.dropdown{
+    padding-bottom: 10px;
+}
+
+
+.cards{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color : rgb(234, 236, 238);
+}
