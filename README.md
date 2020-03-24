@@ -11,7 +11,7 @@
   ```
   git clone https://github.com/SakshiSaini17092/Spotify.git
   ```
-  * Change the line 7 and 8 
+  * Change the line 7 and 8 in Spotify/server/routes/auth.js
   add your credentials
   
   * Run the server using the commands below
