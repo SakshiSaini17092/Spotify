@@ -98,7 +98,7 @@ class DropdownExampleRemote extends Component {
     this.setState({ multiple, value: newValue })
   }
 
-  handleChange = (e, {value}) =>{
+  handlePopularityChange = (e, {value}) =>{
     console.log("hangeling popularity")
     console.log(value)
     value = value.toString()
@@ -176,15 +176,15 @@ class DropdownExampleRemote extends Component {
                 track.push(obj)
             });
             this.props.onChange(track)
-            this.setState({tracks: []})
-            // this.setState({tracks: track})
+            this.setState({tracks: track})
         } )
     .catch( err => 
         console.log(err)
     );
   }
   render() {
-    getOptions("rock")
+
+    getOptions(this.props.param)
     const { multiple, options, isFetching, search, value } = this.state
 
     return (
@@ -225,7 +225,7 @@ class DropdownExampleRemote extends Component {
                 search
                 selection
                 options={popularityOptions}
-                onChange={this.handleChange}
+                onChange={this.handlePopularityChange}
                 
             />
          
